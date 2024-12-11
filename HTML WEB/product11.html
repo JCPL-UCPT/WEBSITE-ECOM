@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Name</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_index.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="categories.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">
+    <h3><a href="index.html" class="logo-name">ShirtSational</a></h3>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="categories.html">Categories</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="login.html" id="login">Login</a></li>
+    <li><a href="cart.html" style="font-size: 24px; line-height: 0.1;">🛒</a></li>
+  </ul>
+</nav>
+
+<!-- Product Section -->
+<div class="product-container">
+  <img src="PR 11.png" alt="Product Image" class="product-image">
+  <div class="product-box"> <!-- Added a curved box around product details -->
+    <div class="product-details">
+      <h1 class="product-title">AiryEssence</h1>
+      <p class="product-description">CoolCharm Tank. A simple and elegant tank top that provides comfort and effortless style. Its versatile design makes it perfect for pairing with any casual look.</p>
+      <p class="product-price">Price: Php. 700</p>
+
+      <div class="product-sizes">
+        <label for="size">Size:</label>
+        <select id="size" name="size">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+      </div>
+
+      <div class="product-buttons">
+        <button id="add-to-cart" class="btn">Add to Cart</button>
+        <button id="like-button" class="btn">Like</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-container">
+  <div class="footer-1">
+    <a href="index.html"><h2>ShirtSational</h2></a>
+    <br>
+    <p><b>ONLINE SHOPPING</b></p>
+    <h6>
+      Men<br><br>
+      Women <br><br>
+      Kids <br><br>
+      ShirtSational Exclusive<br><br>
+    </h6>
+  </div>
+
+  <div class="footer-2">
+    <p><b>USEFUL LINKS</b></p>
+    <h6>
+      Contact Us<br><br>
+      FAQ<br><br>
+      T&C<br><br>
+      Blog<br><br>
+      Privacy Policy<br><br>
+    </h6>
+  </div>
+
+  <div class="footer-3">
+    <p><b>100% Original</b> guarantee</p>
+    <h6>
+      for all products at ShirtSational.com
+    </h6>
+    <p><b>Return within 30days</b> of</p>
+    <h6>
+      receiving your order
+    </h6>
+    <p><b>Get free delivery</b> for every</p>
+    <h6>
+      order above $99
+    </h6>
+    <br><br>
+  </div>
+</div>
+<p class="copy-right"><a href="index.html">PHILIPPINES</a>&copy;2024</p>
+<br>
+<!-- FOOTER -->
+
+<script>
+  document.getElementById('add-to-cart').addEventListener('click', function() {
+      const product = {
+          title: 'AiryEssence',
+          description: 'CoolCharm Tank. A simple and elegant tank top that provides comfort and effortless style. Its versatile design makes it perfect for pairing with any casual look.',
+          price: 'Php 700',
+          size: document.getElementById('size').value,
+          image: 'PR 11.png'
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert('Product added to cart!');
+  });
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

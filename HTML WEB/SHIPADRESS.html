@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Address</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+    <link rel="stylesheet" href="ship.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_index.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="categories.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">
+        <h3><a href="index.html" class="logo-name">ShirtSational</a></h3>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html" id="login">Login</a></li>
+        <li><a href="cart.html" style="font-size: 24px; line-height: 0.1;">🛒</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="header">Shipping Address</div>
+
+    <form id="shippingForm">
+        <h3>Contact Information:</h3>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+        <br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+        <br><br>
+
+        <h3>Address Information:</h3>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required placeholder="Enter your country">
+        <br><br>
+        <label for="region">Region:</label>
+        <input type="text" id="region" name="region" required placeholder="Enter your region">
+        <br><br>
+        <label for="details">Other Details (Optional):</label>
+        <textarea id="details" name="details" placeholder="Enter any other details (optional)"></textarea>
+        <br><br>
+
+        <h3>Settings:</h3>
+        <label for="default">Set as Default Address:</label>
+        <label class="switch">
+            <input type="checkbox" id="default" name="default">
+            <span class="slider round"></span>
+        </label>
+        <br><br>
+
+        <button type="submit" id="saveBtn">Save Address</button>
+    </form>
+
+    <div id="error-message" style="color: red;"></div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-container">
+    <div class="footer-1">
+      <a href="index.html"><h2>ShirtSational</h2></a>
+      <br>
+      <p><b>ONLINE SHOPPING</b></p>
+        <h6>
+          Men<br><br>
+          Women <br><br>
+          Kids <br><br>
+          ShirtSational Exclusive<br><br>
+        </h6>
+    </div>
+
+    <div class="footer-2">
+      <p><b>USEFUL LINKS</b></p>
+      <h6>
+        Contact Us<br><br>
+        FAQ<br><br>
+        T&C<br><br>
+        Blog<br><br>
+        Privacy Policy<br><br>
+      </h6>
+    </div>
+
+    <div class="footer-3">
+      <p><b>100% Original</b> guarantee</p>
+        <h6>
+          for all products at ShirtSational.com
+        </h6>
+      <p><b>Return within 30days</b> of</p>
+        <h6>
+          receiving you order
+        </h6>
+      <p><b>Get free delivery</b> for every</p>
+        <h6>
+          order above $99
+        </h6>
+      <br><br>
+    </div>
+  
+  </div>
+  <p class="copy-right"><a href="index.html">PHILIPPINES</a>&copy;2024</p>
+  <br>
+<!-- FOOTER -->
+
+<script>
+    // Check if address is already saved
+    window.onload = function() {
+        let savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
+
+        if (savedAddress) {
+            document.getElementById('name').value = savedAddress.name;
+            document.getElementById('phone').value = savedAddress.phone;
+            document.getElementById('country').value = savedAddress.country;
+            document.getElementById('region').value = savedAddress.region;
+            document.getElementById('details').value = savedAddress.details;
+            document.getElementById('default').checked = savedAddress.default;
+            document.getElementById('error-message').textContent = "Address is already saved.";
+        }
+    };
+
+    // Handle form submission
+    document.getElementById('shippingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Validate form fields
+        if (!document.getElementById('name').value || 
+            !document.getElementById('phone').value || 
+            !document.getElementById('country').value || 
+            !document.getElementById('region').value) {
+            document.getElementById('error-message').textContent = "Please fill up all required fields.";
+        } else {
+            let address = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                country: document.getElementById('country').value,
+                region: document.getElementById('region').value,
+                details: document.getElementById('details').value,
+                default: document.getElementById('default').checked
+            };
+
+            localStorage.setItem('shippingAddress', JSON.stringify(address));
+            document.getElementById('error-message').textContent = "Address saved successfully!";
+        }
+    });
+</script>
+
+</body>
+</html>
