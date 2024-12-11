@@ -1,0 +1,82 @@
+.product-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 100%;
+    margin-top: 10rem; /* Added margin at the top */
+    margin-bottom: 5rem; /* Added margin at the bottom */
+}
+
+.product-image {
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Adjust the height as needed */
+    object-fit: fill; /* This will ensure the image maintains its aspect ratio and covers the area */
+    border-radius: 8px;
+}
+
+.product-box { /* Curved box for product details */
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.product-details {
+    text-align: left;
+}
+
+.product-title {
+    font-size: 2rem;
+    color: #333;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #e60000;
+    margin-top: 1rem;
+}
+
+.product-sizes {
+    margin-top: 1.5rem;
+}
+
+.product-sizes label {
+    font-size: 1rem;
+    color: #333;
+    margin-right: 0.5rem;
+}
+
+.product-sizes select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.product-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.product-buttons .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #e60000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-buttons .btn:hover {
+    background-color: #d50000;
+}

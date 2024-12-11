@@ -1,0 +1,29 @@
+.social-contact{
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+.other-login-op-img1{
+    margin-top: 2px;
+}
+.contact-info{
+    padding-top:170px;
+    text-align: center;
+}
+.slogan{
+    font-family: 'Arial Narrow Bold';
+    color:black;
+    font-size: 50px;
+    text-align: center;
+}
+.author{
+    font-family: 'Nova Cut', cursive;
+    color:black;
+    text-align: center;
+} 
+.footer-container{
+    margin-top: 400px;
+}
